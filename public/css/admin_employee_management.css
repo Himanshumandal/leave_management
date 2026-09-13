@@ -1,0 +1,1203 @@
+* {
+    box-sizing: border-box;
+}
+
+
+body {
+
+    margin: 0;
+
+    background: #f5f7fb;
+
+    color: #1f2937;
+
+    font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+}
+
+
+/* =====================================================
+           PAGE
+        ===================================================== */
+
+.employee-page {
+
+    padding: 30px;
+
+    max-width: 1600px;
+
+    margin: auto;
+
+}
+
+
+/* =====================================================
+           PAGE HEADER
+        ===================================================== */
+
+.page-header {
+
+    margin-bottom: 25px;
+
+}
+
+
+.page-title {
+
+    font-size: 26px;
+
+    font-weight: 700;
+
+    color: #111827;
+
+    margin: 0;
+
+    letter-spacing: -0.3px;
+
+}
+
+
+.page-subtitle {
+
+    margin-top: 6px;
+
+    color: #6b7280;
+
+    font-size: 14px;
+
+}
+
+
+/* =====================================================
+           ADD BUTTON
+        ===================================================== */
+
+.btn-add-employee {
+
+    height: 42px;
+
+    padding: 0 18px;
+
+    border-radius: 8px;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    box-shadow:
+        0 2px 5px rgba(37, 99, 235, 0.15);
+
+    transition: all 0.2s ease;
+
+}
+
+
+.btn-add-employee:hover {
+
+    transform: translateY(-1px);
+
+}
+
+
+/* =====================================================
+           MAIN CARD
+        ===================================================== */
+
+.employee-card {
+
+    border: 1px solid #e8ebf0;
+
+    border-radius: 12px;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 4px 18px rgba(15, 23, 42, 0.04);
+
+    overflow: hidden;
+
+}
+
+
+/* =====================================================
+           CARD HEADER
+        ===================================================== */
+
+.employee-card-header {
+
+    padding: 20px 22px;
+
+    border-bottom: 1px solid #edf0f4;
+
+}
+
+
+.card-title {
+
+    margin: 0;
+
+    font-size: 17px;
+
+    font-weight: 650;
+
+    color: #111827;
+
+}
+
+
+.card-subtitle {
+
+    display: block;
+
+    margin-top: 4px;
+
+    font-size: 13px;
+
+    color: #8a94a6;
+
+}
+
+
+/* =====================================================
+           SEARCH
+        ===================================================== */
+
+.search-box {
+
+    position: relative;
+
+    width: 280px;
+
+}
+
+
+.search-box i {
+
+    position: absolute;
+
+    left: 13px;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    color: #9ca3af;
+
+    font-size: 15px;
+
+    pointer-events: none;
+
+}
+
+
+.search-box input {
+
+    height: 40px;
+
+    padding-left: 38px;
+
+    padding-right: 12px;
+
+    border: 1px solid #dfe3e8;
+
+    border-radius: 8px;
+
+    font-size: 13px;
+
+    background: #ffffff;
+
+}
+
+
+.search-box input::placeholder {
+
+    color: #9ca3af;
+
+}
+
+
+.search-box input:focus {
+
+    border-color: #2563eb;
+
+    box-shadow:
+        0 0 0 3px rgba(37, 99, 235, 0.08);
+
+}
+
+
+.employee-filter-row {
+
+    width: 100%;
+
+}
+
+
+.employee-filter-row .form-control,
+.employee-filter-row .form-select {
+
+    height: 40px;
+
+    min-height: 40px;
+
+}
+
+
+/* RESET BUTTON */
+
+#resetEmployeeFilters {
+
+    height: 40px;
+
+    border-radius: 8px;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+
+}
+
+
+#resetEmployeeFilters:hover {
+
+    transform: translateY(-1px);
+
+}
+
+
+@media (max-width: 991px) {
+
+    .employee-card-header {
+
+        padding: 18px;
+
+    }
+
+}
+
+
+@media (max-width: 768px) {
+
+    .employee-card-header .search-box {
+
+        width: 100%;
+
+    }
+
+    #departmentFilter,
+    #statusFilter,
+    #resetEmployeeFilters {
+
+        width: 100%;
+
+    }
+
+}
+
+
+/* =====================================================
+           TABLE
+        ===================================================== */
+
+.table-responsive {
+
+    overflow-x: auto;
+
+    -webkit-overflow-scrolling: touch;
+
+}
+
+
+.employee-table {
+
+    width: 100%;
+
+    min-width: 1100px;
+
+    margin: 0;
+
+}
+
+
+.employee-table thead th {
+
+    background: #f8fafc;
+
+    color: #667085;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.5px;
+
+    padding: 14px 18px;
+
+    border-bottom: 1px solid #e8ebf0;
+
+    white-space: nowrap;
+
+}
+
+
+.employee-table tbody td {
+
+    padding: 14px 18px;
+
+    height: 68px;
+
+    vertical-align: middle;
+
+    color: #475467;
+
+    font-size: 13px;
+
+    border-bottom: 1px solid #f0f2f5;
+
+    white-space: nowrap;
+
+}
+
+
+.employee-table tbody tr {
+
+    transition: background 0.15s ease;
+
+}
+
+
+.employee-table tbody tr:hover {
+
+    background: #fafbff;
+
+}
+
+
+.employee-table tbody tr:last-child td {
+
+    border-bottom: none;
+
+}
+
+
+/* =====================================================
+           EMPLOYEE ID
+        ===================================================== */
+
+.employee-id {
+
+    color: #2563eb;
+
+    font-weight: 650;
+
+    font-size: 13px;
+
+}
+
+
+/* =====================================================
+           EMPLOYEE PROFILE
+        ===================================================== */
+
+.employee-profile {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+}
+
+
+.employee-avatar {
+
+    width: 36px;
+
+    height: 36px;
+
+    min-width: 36px;
+
+    border-radius: 50%;
+
+    background: #eff6ff;
+
+    color: #2563eb;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    text-transform: uppercase;
+
+}
+
+
+.employee-name {
+
+    font-weight: 600;
+
+    color: #1f2937;
+
+    font-size: 13px;
+
+}
+
+
+.employee-email {
+
+    color: #8a94a6;
+
+    font-size: 11px;
+
+    margin-top: 2px;
+
+}
+
+
+/* =====================================================
+           STATUS
+        ===================================================== */
+
+.status-badge {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 6px;
+
+    padding: 5px 10px;
+
+    border-radius: 20px;
+
+    font-size: 11px;
+
+    font-weight: 650;
+
+    text-transform: capitalize;
+
+}
+
+
+.status-badge::before {
+
+    content: "";
+
+    width: 6px;
+
+    height: 6px;
+
+    border-radius: 50%;
+
+}
+
+
+.status-active {
+
+    background: #ecfdf3;
+
+    color: #027a48;
+
+}
+
+
+.status-active::before {
+
+    background: #12b76a;
+
+}
+
+
+.status-inactive {
+
+    background: #fef3f2;
+
+    color: #b42318;
+
+}
+
+
+.status-inactive::before {
+
+    background: #f04438;
+
+}
+
+
+/* =====================================================
+           ACTION BUTTON
+        ===================================================== */
+
+.action-btn {
+
+    width: 34px;
+
+    height: 34px;
+
+    border: 1px solid #e4e7ec;
+
+    background: #ffffff;
+
+    border-radius: 7px;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    color: #667085;
+
+    transition: all 0.2s ease;
+
+}
+
+
+.action-btn:hover {
+
+    background: #f8fafc;
+
+    color: #2563eb;
+
+}
+
+
+.dropdown-menu {
+
+    min-width: 160px;
+
+    padding: 6px;
+
+    border: 1px solid #eaecf0;
+
+    border-radius: 8px;
+
+    box-shadow:
+        0 8px 20px rgba(16, 24, 40, 0.10);
+
+}
+
+
+.dropdown-item {
+
+    padding: 8px 10px;
+
+    border-radius: 6px;
+
+    font-size: 13px;
+
+}
+
+
+.dropdown-item i {
+
+    width: 18px;
+
+}
+
+
+.dropdown-item.delete-action {
+
+    color: #dc3545;
+
+}
+
+
+.dropdown-item.delete-action:hover {
+
+    background: #fff1f2;
+
+    color: #dc3545;
+
+}
+
+
+/* =====================================================
+           EMPTY STATE
+        ===================================================== */
+
+.empty-state {
+
+    padding: 60px 20px !important;
+
+    text-align: center;
+
+    color: #98a2b3 !important;
+
+}
+
+
+.empty-state-icon {
+
+    width: 55px;
+
+    height: 55px;
+
+    margin: auto;
+
+    margin-bottom: 12px;
+
+    border-radius: 50%;
+
+    background: #f2f4f7;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 23px;
+
+    color: #98a2b3;
+
+}
+
+
+.empty-state-title {
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    color: #475467;
+
+}
+
+
+/* =====================================================
+           LOADING
+        ===================================================== */
+
+.loading-container {
+
+    padding: 60px 20px !important;
+
+    text-align: center;
+
+    color: #667085 !important;
+
+}
+
+
+/* =====================================================
+           PAGINATION
+        ===================================================== */
+
+.employee-pagination-wrapper {
+
+    padding: 15px 20px;
+
+    border-top: 1px solid #edf0f4;
+
+    background: #ffffff;
+
+}
+
+
+#employeePaginationInfo {
+
+    color: #667085;
+
+    font-size: 12px;
+
+}
+
+
+#employeePagination {
+
+    margin-bottom: 0;
+
+}
+
+
+#employeePagination .page-link {
+
+    min-width: 34px;
+
+    height: 34px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 0 10px;
+
+    border: 1px solid #e4e7ec;
+
+    color: #475467;
+
+    font-size: 12px;
+
+    font-weight: 500;
+
+}
+
+
+#employeePagination .page-item:first-child .page-link {
+
+    border-top-left-radius: 7px;
+
+    border-bottom-left-radius: 7px;
+
+}
+
+
+#employeePagination .page-item:last-child .page-link {
+
+    border-top-right-radius: 7px;
+
+    border-bottom-right-radius: 7px;
+
+}
+
+
+#employeePagination .page-item.active .page-link {
+
+    background: #2563eb;
+
+    border-color: #2563eb;
+
+    color: #ffffff;
+
+}
+
+
+#employeePagination .page-item.disabled .page-link {
+
+    background: #f8fafc;
+
+    color: #98a2b3;
+
+    cursor: not-allowed;
+
+}
+
+
+#employeePagination .page-link:hover {
+
+    background: #f8fafc;
+
+    color: #2563eb;
+
+}
+
+
+#employeePagination .page-item.active .page-link:hover {
+
+    background: #2563eb;
+
+    color: #ffffff;
+
+}
+
+
+/* =====================================================
+           FOOTER
+        ===================================================== */
+
+.table-footer {
+
+    padding: 15px 20px;
+
+    border-top: 1px solid #edf0f4;
+
+    background: #ffffff;
+
+    color: #667085;
+
+    font-size: 12px;
+
+}
+
+
+/* =====================================================
+           MESSAGE
+        ===================================================== */
+
+#message {
+
+    margin-bottom: 15px;
+
+}
+
+
+/* =====================================================
+           MODALS
+        ===================================================== */
+
+.modal-content {
+
+    border: none;
+
+    border-radius: 14px;
+
+    box-shadow:
+        0 20px 50px rgba(15, 23, 42, 0.15);
+
+}
+
+
+.modal-header {
+
+    padding: 20px 24px;
+
+    border-bottom: 1px solid #edf0f4;
+
+}
+
+
+.modal-title {
+
+    font-size: 18px;
+
+    font-weight: 650;
+
+    color: #111827;
+
+}
+
+
+.modal-body {
+
+    padding: 24px;
+
+}
+
+
+.modal-footer {
+
+    padding: 16px 24px;
+
+    border-top: 1px solid #edf0f4;
+
+}
+
+
+.form-label {
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    color: #374151;
+
+}
+
+
+.form-control,
+.form-select {
+
+    min-height: 42px;
+
+    border-color: #dfe3e8;
+
+    border-radius: 8px;
+
+    font-size: 13px;
+
+}
+
+
+.form-control:focus,
+.form-select:focus {
+
+    border-color: #2563eb;
+
+    box-shadow:
+        0 0 0 3px rgba(37, 99, 235, 0.08);
+
+}
+
+
+.field-error {
+
+    min-height: 18px;
+
+    margin-top: 4px;
+
+    font-size: 12px;
+
+    color: #dc3545;
+
+}
+
+
+/* =====================================================
+           DELETE MODAL
+        ===================================================== */
+
+.delete-modal-icon {
+
+    width: 64px;
+
+    height: 64px;
+
+    margin: 0 auto 18px;
+
+    border-radius: 50%;
+
+    background: #fff1f2;
+
+    color: #dc3545;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 28px;
+
+}
+
+
+.delete-title {
+
+    font-size: 19px;
+
+    font-weight: 700;
+
+    color: #111827;
+
+    margin-bottom: 8px;
+
+}
+
+
+.delete-description {
+
+    font-size: 13px;
+
+    line-height: 1.6;
+
+    color: #667085;
+
+    margin-bottom: 0;
+
+}
+
+
+.delete-employee-name {
+
+    font-weight: 700;
+
+    color: #111827;
+
+}
+
+
+.delete-warning {
+
+    margin-top: 18px;
+
+    padding: 12px 14px;
+
+    border-radius: 8px;
+
+    background: #fff7ed;
+
+    color: #9a3412;
+
+    font-size: 12px;
+
+}
+
+
+.delete-warning i {
+
+    margin-right: 5px;
+
+}
+
+
+/* =====================================================
+           MOBILE
+        ===================================================== */
+
+@media (max-width: 992px) {
+
+    .employee-page {
+
+        padding: 20px;
+
+    }
+
+
+    .search-box {
+
+        width: 100%;
+
+    }
+
+}
+
+
+@media (max-width: 768px) {
+
+    .employee-page {
+
+        padding: 15px;
+
+    }
+
+
+    .page-header {
+
+        margin-bottom: 20px;
+
+    }
+
+
+    .page-title {
+
+        font-size: 22px;
+
+    }
+
+
+    .page-subtitle {
+
+        font-size: 13px;
+
+    }
+
+
+    .header-actions {
+
+        width: 100%;
+
+        margin-top: 15px;
+
+    }
+
+
+    .btn-add-employee {
+
+        width: 100%;
+
+        justify-content: center;
+
+    }
+
+
+    .employee-card-header {
+
+        padding: 17px;
+
+    }
+
+
+    .search-box {
+
+        width: 100%;
+
+    }
+
+
+    .employee-table {
+
+        min-width: 1050px;
+
+    }
+
+
+    .employee-pagination-wrapper {
+
+        flex-direction: column;
+
+        gap: 12px;
+
+        align-items: flex-start !important;
+
+    }
+
+}
+
+
+@media (max-width: 576px) {
+
+    .employee-page {
+
+        padding: 10px;
+
+    }
+
+
+    .page-title {
+
+        font-size: 20px;
+
+    }
+
+
+    .employee-card {
+
+        border-radius: 9px;
+
+    }
+
+
+    .employee-card-header {
+
+        padding: 15px;
+
+    }
+
+
+    .modal-body {
+
+        padding: 18px;
+
+    }
+
+
+    .modal-header {
+
+        padding: 18px;
+
+    }
+
+
+    .modal-footer {
+
+        padding: 14px 18px;
+
+    }
+
+
+    #employeePagination .page-link {
+
+        min-width: 32px;
+
+        padding: 0 8px;
+
+    }
+
+}

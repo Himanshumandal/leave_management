@@ -1,0 +1,1015 @@
+/* =========================================================
+   EMPLOYEE PORTAL - GLOBAL
+========================================================= */
+
+:root {
+    --employee-sidebar-width: 250px;
+
+    --primary: #2563eb;
+    --primary-dark: #1d4ed8;
+
+    --sidebar-bg: #111827;
+    --sidebar-hover: #1f2937;
+
+    --background: #f5f7fb;
+    --white: #ffffff;
+
+    --border-color: #e5e7eb;
+
+    --text-primary: #1f2937;
+    --text-secondary: #6b7280;
+
+    --success: #198754;
+    --warning: #f59e0b;
+    --info: #0ea5e9;
+}
+
+
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+}
+
+body {
+    background: var(--background);
+    color: var(--text-primary);
+
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Arial,
+        sans-serif;
+}
+
+
+/* =========================================================
+   SIDEBAR
+========================================================= */
+
+.employee-sidebar {
+
+    width: var(--employee-sidebar-width);
+
+    height: 100vh;
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    background: var(--sidebar-bg);
+
+    color: #ffffff;
+
+    padding: 20px 15px;
+
+    z-index: 1050;
+
+    overflow-y: auto;
+
+    transition: transform 0.25s ease;
+}
+
+
+/* =========================================================
+   SIDEBAR BRAND
+========================================================= */
+
+.sidebar-brand {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 10px 15px 25px;
+
+    border-bottom:
+        1px solid
+        rgba(255, 255, 255, 0.08);
+
+    margin-bottom: 20px;
+
+    color: #ffffff;
+}
+
+.sidebar-brand span {
+
+    font-size: 18px;
+
+    font-weight: 700;
+
+    white-space: nowrap;
+}
+
+
+.brand-icon {
+
+    width: 38px;
+    height: 38px;
+
+    min-width: 38px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: var(--primary);
+
+    border-radius: 8px;
+
+    color: #ffffff;
+
+    font-size: 18px;
+}
+
+
+/* =========================================================
+   SIDEBAR PROFILE
+========================================================= */
+
+.sidebar-profile {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 12px 10px;
+
+    margin-bottom: 20px;
+
+    background: rgba(255, 255, 255, 0.04);
+
+    border-radius: 8px;
+}
+
+
+.sidebar-avatar {
+
+    width: 38px;
+    height: 38px;
+
+    min-width: 38px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: var(--primary);
+
+    color: #ffffff;
+
+    font-size: 17px;
+}
+
+
+.sidebar-profile-info {
+
+    min-width: 0;
+}
+
+
+.sidebar-profile-info strong {
+
+    display: block;
+
+    color: #ffffff;
+
+    font-size: 13px;
+
+    font-weight: 600;
+}
+
+
+.sidebar-profile-info span {
+
+    display: block;
+
+    margin-top: 2px;
+
+    color: #9ca3af;
+
+    font-size: 11px;
+}
+
+
+/* =========================================================
+   SIDEBAR NAVIGATION
+========================================================= */
+
+.sidebar-navigation {
+
+    width: 100%;
+}
+
+
+.nav-section-title {
+
+    margin: 15px 10px 8px;
+
+    color: #6b7280;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.08em;
+}
+
+
+/* =========================================================
+   SIDEBAR LINKS
+========================================================= */
+
+.sidebar-link {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    width: 100%;
+
+    padding: 11px 15px;
+
+    margin-bottom: 5px;
+
+    color: #9ca3af;
+
+    text-decoration: none;
+
+    border-radius: 8px;
+
+    font-size: 14px;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+.sidebar-link i {
+
+    width: 20px;
+
+    min-width: 20px;
+
+    text-align: center;
+
+    font-size: 17px;
+}
+
+
+.sidebar-link:hover {
+
+    background: var(--sidebar-hover);
+
+    color: #ffffff;
+
+    text-decoration: none;
+}
+
+
+.sidebar-link.active {
+
+    background: var(--primary);
+
+    color: #ffffff;
+}
+
+
+.sidebar-link.active:hover {
+
+    background: var(--primary-dark);
+
+    color: #ffffff;
+}
+
+
+/* =========================================================
+   SIDEBAR FOOTER
+========================================================= */
+
+.sidebar-footer {
+
+    margin-top: 25px;
+
+    padding-top: 15px;
+
+    border-top:
+        1px solid
+        rgba(255, 255, 255, 0.08);
+}
+
+
+.logout-link:hover {
+
+    background: rgba(220, 38, 38, 0.15);
+
+    color: #fca5a5;
+}
+
+
+/* =========================================================
+   MAIN CONTENT
+========================================================= */
+
+.main-content {
+
+    margin-left: var(--employee-sidebar-width);
+
+    width: calc(100% - var(--employee-sidebar-width));
+
+    min-height: 100vh;
+
+    background: var(--background);
+}
+
+
+/* =========================================================
+   EMPLOYEE TOPBAR
+========================================================= */
+
+.employee-topbar {
+
+    height: 70px;
+
+    width: 100%;
+
+    background: var(--white);
+
+    border-bottom:
+        1px solid
+        var(--border-color);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 0 30px;
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 100;
+}
+
+
+.employee-topbar h5 {
+
+    margin: 0;
+
+    font-size: 16px;
+
+    font-weight: 600;
+
+    color: var(--text-primary);
+}
+
+
+.employee-topbar small {
+
+    font-size: 11px;
+}
+
+
+/* =========================================================
+   MOBILE MENU BUTTON
+========================================================= */
+
+.mobile-menu-btn {
+
+    display: none;
+
+    width: 40px;
+    height: 40px;
+
+    border: 0;
+
+    background: transparent;
+
+    color: var(--text-primary);
+
+    font-size: 22px;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 8px;
+}
+
+
+.mobile-menu-btn:hover {
+
+    background: #f3f4f6;
+}
+
+
+/* =========================================================
+   TOPBAR ICON
+========================================================= */
+
+.topbar-icon-btn {
+
+    position: relative;
+
+    width: 38px;
+    height: 38px;
+
+    border: 0;
+
+    background: transparent;
+
+    border-radius: 8px;
+
+    color: var(--text-secondary);
+
+    font-size: 18px;
+}
+
+
+.topbar-icon-btn:hover {
+
+    background: #f3f4f6;
+
+    color: var(--text-primary);
+}
+
+
+/* =========================================================
+   NOTIFICATION DOT
+========================================================= */
+
+.notification-dot {
+
+    position: absolute;
+
+    top: 7px;
+    right: 7px;
+
+    width: 7px;
+    height: 7px;
+
+    background: #ef4444;
+
+    border-radius: 50%;
+
+    border: 2px solid #ffffff;
+}
+
+
+/* =========================================================
+   TOPBAR PROFILE
+========================================================= */
+
+.topbar-profile {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+}
+
+
+.topbar-avatar {
+
+    width: 38px;
+    height: 38px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: var(--primary);
+
+    color: #ffffff;
+
+    font-size: 16px;
+}
+
+
+.topbar-profile strong {
+
+    display: block;
+
+    font-size: 13px;
+
+    color: var(--text-primary);
+}
+
+
+.topbar-profile small {
+
+    display: block;
+
+    margin-top: 2px;
+
+    color: var(--text-secondary);
+
+    font-size: 11px;
+}
+
+
+/* =========================================================
+   SIDEBAR OVERLAY
+========================================================= */
+
+.sidebar-overlay {
+
+    display: none;
+}
+
+
+/* =========================================================
+   DASHBOARD CONTAINER
+========================================================= */
+
+.dashboard-container {
+
+    width: 100%;
+
+    max-width: 1600px;
+
+    margin: 0 auto;
+
+    padding: 30px;
+}
+
+
+/* =========================================================
+   WELCOME SECTION
+========================================================= */
+
+.welcome-section {
+
+    margin-bottom: 28px;
+}
+
+
+.welcome-section h2 {
+
+    margin: 0 0 5px;
+
+    font-size: 24px;
+
+    font-weight: 600;
+
+    color: var(--text-primary);
+}
+
+
+.welcome-section p {
+
+    margin: 0;
+
+    color: var(--text-secondary);
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   CONTENT CARD
+========================================================= */
+
+.content-card {
+
+    height: 100%;
+
+    background: var(--white);
+
+    border:
+        1px solid
+        var(--border-color);
+
+    border-radius: 10px;
+
+    padding: 24px;
+
+    box-shadow:
+        0 1px 2px
+        rgba(0, 0, 0, 0.02);
+}
+
+
+/* =========================================================
+   CARD HEADER
+========================================================= */
+
+.content-card-header {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+}
+
+
+.content-card-header h5 {
+
+    margin: 0;
+
+    font-size: 16px;
+
+    font-weight: 600;
+
+    color: var(--text-primary);
+}
+
+
+.content-card-header small {
+
+    display: block;
+
+    margin-top: 3px;
+
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   FORM
+========================================================= */
+
+.content-card .form-label {
+
+    font-size: 13px;
+
+    font-weight: 500;
+
+    color: var(--text-primary);
+
+    margin-bottom: 7px;
+}
+
+
+.content-card .form-control,
+.content-card .form-select {
+
+    border-color: var(--border-color);
+
+    border-radius: 7px;
+
+    font-size: 14px;
+
+    padding: 10px 12px;
+}
+
+
+.content-card .form-control:focus,
+.content-card .form-select:focus {
+
+    border-color: var(--primary);
+
+    box-shadow:
+        0 0 0 0.2rem
+        rgba(37, 99, 235, 0.12);
+}
+
+
+/* =========================================================
+   LEAVE SUMMARY
+========================================================= */
+
+.leave-summary-item {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 14px 0;
+
+    border-bottom:
+        1px solid
+        var(--border-color);
+}
+
+
+.leave-summary-item:last-of-type {
+
+    border-bottom: 0;
+}
+
+
+.leave-summary-icon {
+
+    width: 42px;
+    height: 42px;
+
+    min-width: 42px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 8px;
+
+    font-size: 17px;
+}
+
+
+.leave-summary-item small {
+
+    display: block;
+
+    color: var(--text-secondary);
+
+    font-size: 11px;
+
+    margin-bottom: 3px;
+}
+
+
+.leave-summary-item strong {
+
+    display: block;
+
+    color: var(--text-primary);
+
+    font-size: 14px;
+
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   LEAVE INFO
+========================================================= */
+
+.leave-info-box {
+
+    margin-top: 20px;
+
+    padding: 12px;
+
+    background: #f8fafc;
+
+    border:
+        1px solid
+        var(--border-color);
+
+    border-radius: 7px;
+
+    color: var(--text-secondary);
+
+    font-size: 12px;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   LEAVE TABLE
+========================================================= */
+
+.leave-table {
+
+    width: 100%;
+
+    margin-bottom: 0;
+
+    font-size: 13px;
+}
+
+
+.leave-table thead th {
+
+    background: #f8fafc;
+
+    color: var(--text-secondary);
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+    text-transform: uppercase;
+
+    white-space: nowrap;
+
+    border-bottom:
+        1px solid
+        var(--border-color);
+
+    padding: 12px;
+}
+
+
+.leave-table tbody td {
+
+    padding: 13px 12px;
+
+    vertical-align: middle;
+
+    border-color: var(--border-color);
+}
+
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+.btn-primary {
+
+    background: var(--primary);
+
+    border-color: var(--primary);
+}
+
+
+.btn-primary:hover {
+
+    background: var(--primary-dark);
+
+    border-color: var(--primary-dark);
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 991.98px) {
+
+    :root {
+
+        --employee-sidebar-width: 220px;
+    }
+
+
+    .employee-sidebar {
+
+        width: var(--employee-sidebar-width);
+    }
+
+
+    .main-content {
+
+        margin-left: var(--employee-sidebar-width);
+
+        width: calc(
+            100% - var(--employee-sidebar-width)
+        );
+    }
+
+
+    .dashboard-container {
+
+        padding: 25px;
+    }
+
+
+    .employee-topbar {
+
+        padding: 0 25px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE DRAWER
+========================================================= */
+
+@media (max-width: 767.98px) {
+
+    .employee-sidebar {
+
+        width: 250px;
+
+        transform: translateX(-100%);
+
+        transition:
+            transform 0.25s ease;
+    }
+
+
+    .employee-sidebar.show {
+
+        transform: translateX(0);
+    }
+
+
+    .main-content {
+
+        margin-left: 0;
+
+        width: 100%;
+
+        min-height: 100vh;
+    }
+
+
+    .mobile-menu-btn {
+
+        display: flex;
+    }
+
+
+    .employee-topbar {
+
+        height: 65px;
+
+        padding: 0 15px;
+    }
+
+
+    .dashboard-container {
+
+        padding: 20px 15px;
+    }
+
+
+    .welcome-section h2 {
+
+        font-size: 21px;
+    }
+
+
+    .sidebar-overlay.show {
+
+        display: block;
+
+        position: fixed;
+
+        inset: 0;
+
+        background:
+            rgba(0, 0, 0, 0.4);
+
+        z-index: 1040;
+    }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 575.98px) {
+
+    .dashboard-container {
+
+        padding: 15px;
+    }
+
+
+    .content-card {
+
+        padding: 18px;
+    }
+
+
+    .employee-topbar {
+
+        padding: 0 12px;
+    }
+
+
+    .employee-topbar h5 {
+
+        font-size: 14px;
+    }
+
+
+    .welcome-section h2 {
+
+        font-size: 19px;
+    }
+
+
+    .leave-table {
+
+        min-width: 850px;
+    }
+}
