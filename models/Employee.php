@@ -265,12 +265,6 @@ class Employee extends Model
     public function create(array $data): bool
     {
 
-        // $idStmt = $this->db->query(
-        //     "SELECT COALESCE(MAX(id), 0) + 1 FROM employees"
-        // );
-
-        // $id = (int) $idStmt->fetchColumn();
-         throw new Exception("NEW EMPLOYEE CREATE CODE IS RUNNING");
 
 
         $sql = "
