@@ -286,10 +286,16 @@ class Leave extends Model
 
     public function create(array $data): int
     {
+        $idStmt = $this->db->query(
+            "SELECT COALESCE(MAX(id), 0) + 1 FROM leaves"
+        );
+
+        $id = (int) $idStmt->fetchColumn();
 
         $sql = "
             INSERT INTO leaves
             (
+                id,
                 employee_id,
                 leave_type,
                 start_date,
@@ -299,6 +305,7 @@ class Leave extends Model
             )
             VALUES
             (
+                :id,
                 :employee_id,
                 :leave_type,
                 :start_date,
@@ -314,7 +321,7 @@ class Leave extends Model
 
 
         $stmt->execute([
-
+            ':id' => $id,
             ':employee_id' =>
             $data['employee_id'],
 

@@ -111,12 +111,20 @@ class Department extends Model
         array $data
     ): bool {
 
+    $idStmt = $this->db->query(
+        "SELECT COALESCE(MAX(id), 0) + 1 FROM departments"
+    );
+
+    $id = (int) $idStmt->fetchColumn();
+
         $sql = "
             INSERT INTO departments (
+                id,
                 name,
                 status
             )
             VALUES (
+                :id,
                 :name,
                 :status
             )
@@ -125,7 +133,7 @@ class Department extends Model
         $stmt = $this->db->prepare($sql);
 
         return $stmt->execute([
-
+            ':id' => $id,
             ':name' =>
                 $data['name'],
 

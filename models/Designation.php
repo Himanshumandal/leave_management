@@ -599,9 +599,16 @@ class Designation extends Model
         array $data
     ): int|false {
 
+        $idStmt = $this->db->query(
+            "SELECT COALESCE(MAX(id), 0) + 1 FROM designations"
+        );
+
+        $id = (int) $idStmt->fetchColumn();    
+
         $sql = "
             INSERT INTO designations
             (
+                id,
                 department_id,
                 name,
                 status,
@@ -611,6 +618,7 @@ class Designation extends Model
 
             VALUES
             (
+                :id,
                 :department_id,
                 :name,
                 :status,
@@ -628,7 +636,7 @@ class Designation extends Model
 
         $success =
             $stmt->execute([
-
+                ':id' => $id,
                 ':department_id' =>
                     (int) $data['department_id'],
 
