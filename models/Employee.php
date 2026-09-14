@@ -265,11 +265,11 @@ class Employee extends Model
     public function create(array $data): bool
     {
 
-        $idStmt = $this->db->query(
-            "SELECT COALESCE(MAX(id), 0) + 1 FROM employees"
-        );
+        // $idStmt = $this->db->query(
+        //     "SELECT COALESCE(MAX(id), 0) + 1 FROM employees"
+        // );
 
-        $id = (int) $idStmt->fetchColumn();
+        // $id = (int) $idStmt->fetchColumn();
 
         $sql = "
             INSERT INTO employees
@@ -295,7 +295,7 @@ class Employee extends Model
             )
             VALUES
             (
-                :id,
+                (SELECT COALESCE(MAX(id), 0) + 1 FROM employees),
                 :employee_id,
                 :first_name,
                 :last_name,
