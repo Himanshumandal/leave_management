@@ -734,6 +734,6 @@ class Leave extends Model
         
 
 
-        return $leave ?: null;
+        return $leave ?: [];
     }
 }
