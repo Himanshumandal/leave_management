@@ -657,8 +657,7 @@ class Designation extends Model
         }
 
 
-        return
-            (int) $this->db->lastInsertId();
+        return $id;
     }
 
 
