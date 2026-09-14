@@ -3131,9 +3131,16 @@ public function getEmployeeMonthlyStatistics(
         array $data
     ): int {
 
+        $idStmt = $this->db->query(
+            "SELECT COALESCE(MAX(id), 0) + 1 FROM attendance"
+        );
+
+        $id = (int) $idStmt->fetchColumn();
+
         $sql = "
             INSERT INTO attendance
             (
+                id,
                 employee_id,
                 attendance_date,
                 status,
@@ -3143,6 +3150,7 @@ public function getEmployeeMonthlyStatistics(
             )
             VALUES
             (
+                :id,
                 :employee_id,
                 :attendance_date,
                 :status,
@@ -3156,7 +3164,7 @@ public function getEmployeeMonthlyStatistics(
             $this->db->prepare($sql);
 
         $stmt->execute([
-
+            ':id' => $id,
             ':employee_id' =>
             $data['employee_id'],
 
