@@ -140,11 +140,18 @@ class User extends Model
         ]);
     }
 
-     public function create(array $data): bool
+    public function create(array $data): bool
     {
+        $idStmt = $this->db->query(
+            "SELECT COALESCE(MAX(id), 0) + 1 FROM users"
+        );
+
+        $id = (int) $idStmt->fetchColumn();
+
         $sql = "
             INSERT INTO users
             (
+                id,
                 employee_id,
                 email,
                 password,
@@ -153,6 +160,7 @@ class User extends Model
             )
             VALUES
             (
+                :id,
                 :employee_id,
                 :email,
                 :password,
@@ -164,6 +172,7 @@ class User extends Model
         $stmt = $this->db->prepare($sql);
 
         return $stmt->execute([
+            ':id' => $id,
             ':employee_id' => $data['employee_id'],
             ':email' => $data['email'],
             ':password' => $data['password'],
