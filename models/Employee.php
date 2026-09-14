@@ -264,8 +264,11 @@ class Employee extends Model
 
     public function create(array $data): bool
     {
+        $idStmt = $this->db->query(
+            "SELECT COALESCE(MAX(id), 0) + 1 FROM employees"
+        );
 
-
+        $id = (int) $idStmt->fetchColumn();
 
         $sql = "
             INSERT INTO employees
@@ -291,7 +294,7 @@ class Employee extends Model
             )
             VALUES
             (
-                (SELECT COALESCE(MAX(id), 0) + 1 FROM employees),
+                :id,
                 :employee_id,
                 :first_name,
                 :last_name,
@@ -314,22 +317,18 @@ class Employee extends Model
 
         $stmt = $this->db->prepare($sql);
 
-
-        return $stmt->execute(
-            [
-            
-                ':employee_id' => $data['employee_id'],
-                ':first_name' => $data['first_name'],
-                ':last_name' => $data['last_name'],
-                ':email' => $data['email'],
-                ':phone' => $data['phone'],
-                ':department_id' => $data['department_id'],
-                ':designation_id' => $data['designation_id'],
-                ':joining_date' => $data['joining_date'],
-                ':status' => $data['status']
-            ]
-        );
-        
+        return $stmt->execute([
+            ':id' => $id,
+            ':employee_id' => $data['employee_id'],
+            ':first_name' => $data['first_name'],
+            ':last_name' => $data['last_name'],
+            ':email' => $data['email'],
+            ':phone' => $data['phone'],
+            ':department_id' => $data['department_id'],
+            ':designation_id' => $data['designation_id'],
+            ':joining_date' => $data['joining_date'],
+            ':status' => $data['status']
+        ]);
     }
 
     public function delete(int $id): bool
