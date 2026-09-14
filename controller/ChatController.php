@@ -216,27 +216,27 @@ class ChatController extends Controller
             $employeeId;
 
 
-        if (
-            !$this->employeeModel->consumeChatRequest(
-                $employeeId
-            )
-        ) {
+        // if (
+        //     !$this->employeeModel->consumeChatRequest(
+        //         $employeeId
+        //     )
+        // ) {
 
-            error_log(
-                "AI CHAT REQUEST LIMIT REACHED | " .
-                "EMPLOYEE ID: " .
-                $employeeId
-            );
+        //     error_log(
+        //         "AI CHAT REQUEST LIMIT REACHED | " .
+        //         "EMPLOYEE ID: " .
+        //         $employeeId
+        //     );
 
-            $this->json([
+        //     $this->json([
 
-                'success' => false,
+        //         'success' => false,
 
-                'message' =>
-                    'You have reached your AI chat request limit.'
+        //         'message' =>
+        //             'You have reached your AI chat request limit.'
 
-            ], 429);
-        }
+        //     ], 429);
+        // }
 
 
         /*
