@@ -270,6 +270,8 @@ class Employee extends Model
         // );
 
         // $id = (int) $idStmt->fetchColumn();
+         throw new Exception("NEW EMPLOYEE CREATE CODE IS RUNNING");
+
 
         $sql = "
             INSERT INTO employees
@@ -318,6 +320,7 @@ class Employee extends Model
 
         $stmt = $this->db->prepare($sql);
 
+
         return $stmt->execute(
             [
             
@@ -332,6 +335,7 @@ class Employee extends Model
                 ':status' => $data['status']
             ]
         );
+        
     }
 
     public function delete(int $id): bool
