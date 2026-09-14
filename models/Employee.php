@@ -264,9 +264,17 @@ class Employee extends Model
 
     public function create(array $data): bool
     {
+
+        $idStmt = $this->db->query(
+            "SELECT COALESCE(MAX(id), 0) + 1 FROM employees"
+        );
+
+        $id = (int) $idStmt->fetchColumn();
+
         $sql = "
             INSERT INTO employees
             (
+                id,
                 employee_id,
                 first_name,
                 last_name,
@@ -287,6 +295,7 @@ class Employee extends Model
             )
             VALUES
             (
+                :id,
                 :employee_id,
                 :first_name,
                 :last_name,
@@ -311,6 +320,7 @@ class Employee extends Model
 
         return $stmt->execute(
             [
+                ':id' => $id,
                 ':employee_id' => $data['employee_id'],
                 ':first_name' => $data['first_name'],
                 ':last_name' => $data['last_name'],
