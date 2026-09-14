@@ -320,7 +320,7 @@ class Employee extends Model
 
         return $stmt->execute(
             [
-                ':id' => $id,
+            
                 ':employee_id' => $data['employee_id'],
                 ':first_name' => $data['first_name'],
                 ':last_name' => $data['last_name'],
